@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ngpage</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngFor="let item of itens; let ix = index"> <!-- o escopo do item é o row-->
+  <ion-col size="2" *ngIf="item.value == 1">
+    <ion-button color="success" (click)="addItem(item)" >
+      <ion-icon slot="add-outline" ></ion-icon>
+      ADD
+    </ion-button>
+  </ion-col>
+
+  <ion-col size="2" *ngIf="item.value == 2">
+    <ion-button color="danger" (click)="removeItem(item)" >
+      <ion-icon slot="remove-outline"></ion-icon>
+      DEL
+    </ion-button>
+  </ion-col>
+
+  <ion-col size="1">
+    {{item.cod}}
+  </ion-col>
+
+  <ion-col size="3">
+    {{item.descricao}}
+  </ion-col>
+
+  <ion-col size="6">
+    {{maskText(item.texto, 10)}}
+  </ion-col>
+
+</ion-row>
+
+
+<!--<ion-row>
+    <ion-col [hidden] *ngIf="value != 2">
+        Watashi Wa Kira Desu
+    </ion-col>
+</ion-row>!-->
+
+</ion-content>

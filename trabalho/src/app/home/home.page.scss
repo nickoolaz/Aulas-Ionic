@@ -1,0 +1,58 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.box-doce {
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: inset 0 0 10px 10px #f1ccff;
+}
+
+.title-doce {
+  color: rgb(56, 56, 56);
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.price-doce {
+  color: rgb(78, 78, 78);
+  text-align: center;
+  font-weight: bold;
+}
+
+.button-doce {
+  border-radius: 10px;
+  text-align: center;
+  --ion-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.cart-doce {
+  margin: 5px;
+  text-align: end;
+}
+
+.color-footer {
+  background-color: transparent;
+}

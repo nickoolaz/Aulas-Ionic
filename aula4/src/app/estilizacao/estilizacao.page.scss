@@ -1,0 +1,63 @@
+.texto {
+    color: #fff;                                      /* aplica cor */
+    font-size: 20px;                                    /* ajusta o tamanho da fonte */
+    font-family: 'Courier New', Courier, monospace;     /* altera a fonte do texto */
+    font-weight: bold;                                  /* destaque da fonte */
+    text-align: center;                                 /* alinhamento horizontal */
+}
+
+.cl-divs {
+    border: 1px solid #ccc; /* aplicação de borda (espessura, tipo e cor) */
+    background-color: rgb(0, 8, 124); /* aplicação de cor de fundo */
+    border-radius: 5px;       /* aplicação de arredondamento */
+    // width: 100px;
+    width: 50%;               /* aplicação de largura */
+}
+
+.cl-padding { /* aplicação de padding */
+    padding-top:     10px;
+    padding-bottom:  15px;
+    padding-left:    6px;
+    padding-right:   4px;
+    // padding: 10px 8px 6px 4px; /* forma resumida */
+}
+
+.cl-margin { /* aplicação de margin */
+    margin-top:     10px;
+    margin-bottom:  8px;
+    margin-left:    6px;
+    margin-right:   4px;
+    // margin: 10px 8px 6px 4px; /* forma resumida */
+}
+
+/* absolute - leva em consideração o elemento pai */
+/* fixed    - leva em consideração a tela do dispositivo */
+.cl-absoluto {
+    position: absolute;
+    z-index: 20;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: blueviolet;
+    top     : 200px; /* posicionamento de um elemento absoluto */
+    left    : 200px;
+    // bottom  : 200px;
+    // right   : 200px;
+}
+
+.sombra{ /* aplicação de sombras - utilize o site https://www.cssmatic.com/box-shadow */
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(255,255,255,1);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(255,255,255,1);
+    box-shadow: 1px 1px 5px 0px rgba(255,255,255,1);
+    background-color: chocolate;
+}
+
+/* utilização de variáveis */
+.cl-esq{
+    background-color: var(--dark-smoke);
+}
+
+.cl-dir{
+    background-color: var(--dark-blue);
+}

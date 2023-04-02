@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    
+    <ion-title>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="8">
+          Listagem de Filmes
+        </ion-col>
+
+        <ion-col size="2">
+          <ion-button color="success" routerLink="/estilizacao">
+            <ion-icon slot="start" name="extension-puzzle-outline"></ion-icon>
+            Estilização
+          </ion-button>
+        </ion-col>
+    
+        <ion-col size="2">
+          <ion-button color="success" routerLink="/exercicioest">
+            <ion-icon slot="start" name="extension-puzzle-outline"></ion-icon>
+            Exercício
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid>
+    
+    <!-- componente utilizado para permitir a alteração da ordem de itens em uma lista -->
+    <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">      
+      <ion-item *ngFor="let filme of filmes; let ix = index" [hidden]="!filme.visible">
+        <ion-col size="1">
+          <ion-button color="success" (click)="addFilmeAss(filme)" *ngIf="!filme.adicionado">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+
+          <ion-button color="danger" (click)="removeFilmeAss(filme)" *ngIf="filme.adicionado">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+
+        </ion-col>
+        <ion-col size="1">
+          {{ filme.cod }}
+        </ion-col>
+        <ion-col size="3">
+            {{ filme.titulo }}
+        </ion-col>
+        <ion-col size="4" (click)="showSinopse($event, filme.sinopse)">
+            <!-- É possível chamar métodos como resultado -->
+            {{ maskSinopse(filme.sinopse, 40) }}
+        </ion-col>
+        <ion-col size="1">
+            {{ filme.ano }}
+        </ion-col>
+
+        <ion-col size="1">
+          <ion-button (click)="goFilme(filme)">
+            Detalhes
+          </ion-button>
+        </ion-col>
+        <ion-col size="1" class="ion-text-center">
+          <input [(ngModel)]="filme.status" type="checkbox">
+        </ion-col>
+        
+        <ion-reorder slot="end"></ion-reorder>
+
+      </ion-item>
+    </ion-reorder-group>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col size="12">
+      Listagem de filmes que você quer ver ({{ filmesAss.length }}):
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let item of filmesAss">
+    <ion-col size="12">
+      {{ item.titulo }}
+    </ion-col>
+  </ion-row>
+
+
+</ion-footer>

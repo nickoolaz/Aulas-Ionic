@@ -1,0 +1,25 @@
+<!-- exercício relacionado a estilização -->
+ <!-- - uso do [ngClass] -->
+ <!-- - atributos css convencionais -->
+
+ <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Relatórios </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="5" *ngFor="let botao of botoes; let ix = index">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="12" [ngClass]="ix % 2 == 0 ? 'bt-left' : 'bt-right'">
+          <ion-icon name="{{ botao.icone }}"></ion-icon> <br>
+          {{ botao.titulo }}
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>

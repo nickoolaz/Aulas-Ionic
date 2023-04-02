@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{filme.titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let imagem of filme.imagens; let ix = index">
+      <ion-img [src]="pathImgs + imagem"></ion-img>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

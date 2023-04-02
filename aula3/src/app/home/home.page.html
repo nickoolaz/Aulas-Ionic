@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Aula 3 - Formulário, Typescript e Databinding
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+
+    <!-- componente button -->
+    <!-- utilize routerLink para implementar a navegação entre páginas -->
+    <ion-button color="primary" routerLink="/form">
+      <ion-icon slot="start" name="airplane-outline"></ion-icon>
+      Formulário s/ data binding
+    </ion-button>
+
+    <ion-button color="success" routerLink="/form2">
+      <ion-icon slot="start" name="extension-puzzle-outline"></ion-icon>
+      Formulário c/ data binding
+    </ion-button>
+
+    <ion-row>
+      <ion-col size='6'>
+        <!--{{nomeDaVariavel}}-->
+        {{pessoa.idade}}
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-icon (click)="decrentaIdade()" name="remove"></ion-icon>
+        <ion-icon (click)="acrescentaIdade()" name="add"></ion-icon>
+      </ion-col>
+
+
+      <ion-col>
+        <ion-button color="primary" (click)="addAluno('Eduardo', 17, 'sertanejo' )">
+          <ion-icon slot="end" name="add"></ion-icon>
+          Add Aluno
+        </ion-button>
+      </ion-col>
+
+
+
+    </ion-row>
+  </div>
+</ion-content>

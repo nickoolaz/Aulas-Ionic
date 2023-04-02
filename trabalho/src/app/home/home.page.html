@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+
+  <ion-row class="ion-align-items-center first-toolbar">
+    <ion-col size="2" class="ion-text-start menu-icon">
+      <ion-icon name="reorder-three-outline"></ion-icon>
+    </ion-col>
+    <ion-col size="8" class="ion-text-center">
+      Nick's Sweets
+    </ion-col>
+    <ion-col size="2" class="ion-text-end person-icon">
+      <ion-icon name="person-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center second-toolbar">
+    <ion-slides pager="false" class="slide-line active" [options]="slideOpts">
+      <ion-slide *ngFor="let categoria of categorias; let ix = index"
+        [ngClass]="categoria.cod == selecionado ? 'slide-actived' : 'slide-no-actived'"
+        (click)="setSelecionado(categoria.cod)">
+        {{categoria.nome}}
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col size="6" *ngFor="let doce of doces; let ix = index" [hidden]="!doce.visibled">
+      <ion-row>
+        <ion-col size="12" class="box-doce">
+
+          <ion-row>
+            <ion-card size="12" class="image-doce">
+              <ion-img [src]="pathImgs + doce.imagens[0]"></ion-img>
+            </ion-card>
+          </ion-row>
+
+          <ion-row class="ion-text-center" class="title-doce">
+            <ion-col size="12">
+              {{doce.nome}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12" class="price-doce">
+              {{convertReais(doce.valor)}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12" (click)="goDoces(doce)" class="button-doce">
+              <ion-button size="default" style="--background:#c8a2c8">Detalhes</ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col class="cart-doce">
+      <ion-button style="--background:#c8a2c8" shape="round" size="large">
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

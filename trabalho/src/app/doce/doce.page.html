@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-row class="ion-align-items-center first-toolbar">
+    <ion-col size="2" class=" ion-text-start back-button">
+      <ion-button color="light" fill="clear" size="small"><ion-back-button></ion-back-button></ion-button>
+
+    </ion-col>
+    <ion-col size="8" class="ion-text-center">
+      {{doces.nome}}
+    </ion-col>
+  </ion-row>
+</ion-header>
+<ion-content>
+  <ion-row size="12">
+    <ion-col *ngFor="let imagem of doces.imagens; let ix = index" class="img-doce">
+      <ion-card size="small">
+        <ion-img [src]="pathImgs + imagem"></ion-img>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12" class="descricao-doce">
+      {{doces.descricao}}
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer class="footer-doce">
+  <ion-row class="ion-align-items-center">
+    <ion-col size="6" class="price-doce ion-text-center">
+      {{convertReais(doces.valor)}}
+    </ion-col>
+    <ion-col size="6">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="4" class="ion-text-center">
+          <ion-button style="--background:#ad75ad" (click)="remove()">
+            <ion-icon name="remove"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-input class="inp-quantidade" type="number" [(ngModel)]="quantidade"></ion-input>
+        </ion-col>
+        <ion-col size="4" class="ion-text-center">
+          <ion-button style="--background:#ad75ad" (click)="add()">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-footer>
